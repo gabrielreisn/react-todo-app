@@ -6,7 +6,7 @@ import TodoItem from './TodoItem';
 
 //using external inline-style to minimize re-render problems
 const paperStyle = {
-  width: '55%',
+  width: '35%',
   height: '70vh',
   margin: 'auto',
 };
@@ -22,16 +22,31 @@ const textFieldStyle = {
 };
 
 class TodoContainer extends Component {
+  constructor() {
+    super();
+    this.state = {};
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleKeyPress(evt) {
+    if (evt.key === 'Enter') {
+      evt.preventDefault();
+      console.log('save currrent todo item');
+    }
+  }
+
   render() {
     return (
       <Paper style={paperStyle} zDepth={4}>
         <TextField
-          hintText="Hit a new todo"
+          hintText="Hit a new todo and press Enter!"
           floatingLabelText="Todo Title:"
           fullWidth={true}
           style={textFieldStyle.rootElement}
           underlineFocusStyle={textFieldStyle.underline}
           floatingLabelFocusStyle={textFieldStyle.defaultColor}
+          onKeyPress={this.handleKeyPress}
         />
 
         <TodoItem />

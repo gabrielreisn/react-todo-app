@@ -39,15 +39,50 @@ const buttonStyle = {
   margin: 'auto',
 };
 
+const iconStyle = {
+  iconHoverColor: '#ed7224',
+};
+
 class TodoContainer extends Component {
+  constructor() {
+    super();
+
+    this.updateCheck = this.updateCheck.bind(this);
+    this.toggleTextRender = this.toggleTextRender.bind(this);
+
+    this.state = {
+      checked: false,
+    };
+  }
+
+  updateCheck() {
+    let newState = this.state.checked;
+    this.setState({
+      checked: !newState,
+    });
+  }
+
+  toggleTextRender() {
+    return this.state.checked ? (
+      <span className="item-wrapper-text-checked">Todo Card</span>
+    ) : (
+      <span className="item-wrapper-text">Todo Card</span>
+    );
+  }
+
   render() {
     return (
       <div>
         <Card style={cardStyle.externalStyle} containerStyle={cardStyle.containerStyle}>
           <div className="item-wrapper">
-            <Checkbox style={checkBoxStyle.checkBox} iconStyle={checkBoxStyle.selectedColor} />
-            <span className="item-wrapper-text">Todo Card</span>
-            <IconButton iconClassName="material-icons" style={buttonStyle}>
+            <Checkbox
+              style={checkBoxStyle.checkBox}
+              iconStyle={checkBoxStyle.selectedColor}
+              checked={this.state.checked}
+              onCheck={this.updateCheck}
+            />
+            {this.toggleTextRender()}
+            <IconButton iconClassName="material-icons" style={buttonStyle} iconStyle={iconStyle}>
               clear
             </IconButton>
           </div>

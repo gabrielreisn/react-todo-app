@@ -41,3 +41,13 @@
 .item-wrapper-text {
   min-width: 85%;
 }
+
+.item-wrapper-text-checked {
+  min-width: 85%;
+  text-decoration: line-through;
+}
+
+.tittle {
+  margin-top: 20px;
+  color: #b6b0b2;
+}
