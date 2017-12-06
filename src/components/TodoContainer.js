@@ -6,13 +6,17 @@ import TodoItem from './TodoItem';
 
 //using external inline-style to minimize re-render problems
 const paperStyle = {
-  width: '900px',
-  height: '660px',
+  width: '55%',
+  height: '70vh',
   margin: 'auto',
 };
 
 const textFieldStyle = {
-  rootElement: {width: '75%'},
+  rootElement: {
+    width: '75%',
+    marginBottom: '40px',
+    marginTop: '20px',
+  },
   defaultColor: {color: '#ed7224'},
   underline: {borderColor: '#ed7224'},
 };
@@ -24,15 +28,6 @@ class TodoContainer extends Component {
         <TextField
           hintText="Hit a new todo"
           floatingLabelText="Todo Title:"
-          fullWidth={true}
-          style={textFieldStyle.rootElement}
-          underlineFocusStyle={textFieldStyle.underline}
-          floatingLabelFocusStyle={textFieldStyle.defaultColor}
-        />
-
-        <TextField
-          hintText="What you really need to do?"
-          floatingLabelText="Todo Content:"
           fullWidth={true}
           style={textFieldStyle.rootElement}
           underlineFocusStyle={textFieldStyle.underline}

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
 import Checkbox from 'material-ui/Checkbox';
-import Divider from 'material-ui/Divider';
+import IconButton from 'material-ui/IconButton';
+import Card from 'material-ui/Card';
+
+import '../css/App.css';
 
 //using external inline-style to minimize re-render problems
 const cardStyle = {
@@ -25,14 +27,16 @@ const checkBoxStyle = {
   checkBox: {
     width: '24px',
     height: '24px',
+    marginRight: '20px',
   },
   selectedColor: {
     fill: '#ed7224',
   },
 };
 
-const dividerStyle = {
-  marginBottom: '10px',
+const buttonStyle = {
+  padding: '0px',
+  margin: 'auto',
 };
 
 class TodoContainer extends Component {
@@ -40,21 +44,13 @@ class TodoContainer extends Component {
     return (
       <div>
         <Card style={cardStyle.externalStyle} containerStyle={cardStyle.containerStyle}>
-          <CardHeader
-            title="Todo card"
-            actAsExpander={true}
-            showExpandableButton={true}
-            textStyle={cardStyle.textStyle}
-            children={<Checkbox style={checkBoxStyle.checkBox} iconStyle={checkBoxStyle.selectedColor} />}
-            style={cardStyle.cardHeader}
-          />
-
-          <CardText expandable={true}>
-            <Divider style={dividerStyle} />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat.
-            Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam
-            dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-          </CardText>
+          <div className="item-wrapper">
+            <Checkbox style={checkBoxStyle.checkBox} iconStyle={checkBoxStyle.selectedColor} />
+            <span className="item-wrapper-text">Todo Card</span>
+            <IconButton iconClassName="material-icons" style={buttonStyle}>
+              clear
+            </IconButton>
+          </div>
         </Card>
       </div>
     );
