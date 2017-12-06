@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
 
 import TodoItem from './TodoItem';
 
 //using external inline-style to minimize re-render problems
-const cardStyle = {
+const paperStyle = {
   width: '900px',
   height: '660px',
   margin: 'auto',
@@ -20,9 +20,7 @@ const textFieldStyle = {
 class TodoContainer extends Component {
   render() {
     return (
-      <Card style={cardStyle}>
-        <CardHeader title=" " />
-
+      <Paper style={paperStyle} zDepth={4}>
         <TextField
           hintText="Hit a new todo"
           floatingLabelText="Todo Title:"
@@ -44,12 +42,7 @@ class TodoContainer extends Component {
         <TodoItem />
         <TodoItem />
         <TodoItem />
-        <CardText expandable={true}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat.
-          Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui
-          mauris, mattis quis lacus id, pellentesque lobortis odio.
-        </CardText>
-      </Card>
+      </Paper>
     );
   }
 }

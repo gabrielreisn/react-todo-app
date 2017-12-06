@@ -22,26 +22,18 @@ const cardStyle = {
 };
 
 const checkBoxStyle = {
-  width: '24px',
-  height: '24px',
+  checkBox: {
+    width: '24px',
+    height: '24px',
+  },
+  selectedColor: {
+    fill: '#ed7224',
+  },
 };
 
 const dividerStyle = {
   marginBottom: '10px',
 };
-
-/*
-<CardHeader
-            title="Todo card"
-            actAsExpander={true}
-            showExpandableButton={true}
-            textStyle={cardStyle.textStyle}
-            children={<Checkbox style={checkBoxStyle} />}
-            style={cardStyle.cardHeader}
-          />
-
-          <CardHeader actAsExpander={true} showExpandableButton={true} />
-*/
 
 class TodoContainer extends Component {
   render() {
@@ -53,7 +45,7 @@ class TodoContainer extends Component {
             actAsExpander={true}
             showExpandableButton={true}
             textStyle={cardStyle.textStyle}
-            children={<Checkbox style={checkBoxStyle} />}
+            children={<Checkbox style={checkBoxStyle.checkBox} iconStyle={checkBoxStyle.selectedColor} />}
             style={cardStyle.cardHeader}
           />
 
