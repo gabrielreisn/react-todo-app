@@ -39,11 +39,11 @@
 }
 
 .item-wrapper-text {
-  min-width: 85%;
+  flex: 1 1 auto;
 }
 
 .item-wrapper-text-checked {
-  min-width: 85%;
+  flex: 1 1 auto;
   text-decoration: line-through;
 }
 
