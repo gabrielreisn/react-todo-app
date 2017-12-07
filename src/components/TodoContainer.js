@@ -4,6 +4,8 @@ import * as React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 
+import styled from 'styled-components';
+
 import TodoItem from './TodoItem';
 
 //using external inline-style to minimize re-render problems
@@ -22,6 +24,11 @@ const textFieldStyle = {
   defaultColor: {color: '#ed7224'},
   underline: {borderColor: '#ed7224'},
 };
+
+const ItemWrapper = styled.div`
+  max-height: 45vh;
+  overflow-y: auto;
+`;
 
 type Props = {
   /* ... */
@@ -85,9 +92,11 @@ class TodoContainer extends React.Component<Props, State> {
           value={this.state.textField}
           onChange={this.handleChange.bind(this)}
         />
-        {this.state.todoText.map((elem, i) => (
-          <TodoItem text={elem} remove={() => this.deleteFunction(elem)} key={i} />
-        ))}
+        <ItemWrapper>
+          {this.state.todoText.map((elem, i) => (
+            <TodoItem text={elem} remove={() => this.deleteFunction(elem)} key={i} />
+          ))}
+        </ItemWrapper>
       </Paper>
     );
   }
