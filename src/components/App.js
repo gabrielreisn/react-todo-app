@@ -9,7 +9,7 @@ import styled, {keyframes} from 'styled-components';
 const AppWrapper = styled.div`
   text-align: center;
   background-color: #6c7b8e;
-  height: stretch;
+  height: 100vh;
 `;
 
 const AppHeader = styled.header`

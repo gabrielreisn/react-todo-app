@@ -24,16 +24,44 @@ const textFieldStyle = {
 class TodoContainer extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      textField: '',
+      todoText: [],
+    };
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.deleteFunction = this.deleteFunction.bind(this);
   }
 
   handleKeyPress(evt) {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      console.log('save currrent todo item');
+      let text = this.state.textField;
+      let todoArray = [...this.state.todoText];
+      todoArray.unshift(text);
+
+      this.setState({
+        todoText: todoArray,
+        textField: '',
+      });
     }
+  }
+
+  handleChange(event) {
+    this.setState({
+      textField: event.target.value,
+    });
+  }
+
+  deleteFunction(todoText) {
+    let newTodoList = [...this.state.todoText];
+    let index = newTodoList.findIndex(elem => elem === todoText);
+    newTodoList.splice(index, 1);
+
+    this.setState({
+      todoText: newTodoList,
+    });
   }
 
   render() {
@@ -47,11 +75,10 @@ class TodoContainer extends Component {
           underlineFocusStyle={textFieldStyle.underline}
           floatingLabelFocusStyle={textFieldStyle.defaultColor}
           onKeyPress={this.handleKeyPress}
+          value={this.state.textField}
+          onChange={this.handleChange}
         />
-
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {this.state.todoText.map((elem, i) => <TodoItem text={elem} remove={() => this.deleteFunction(elem)} />)}
       </Paper>
     );
   }
