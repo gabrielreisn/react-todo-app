@@ -3,7 +3,7 @@ import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import Card from 'material-ui/Card';
 
-import '../css/App.css';
+import styled from 'styled-components';
 
 //using external inline-style to minimize re-render problems
 const cardStyle = {
@@ -43,6 +43,20 @@ const iconStyle = {
   iconHoverColor: '#ed7224',
 };
 
+const ItemWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Text = styled.span`
+  flex: 1 1 auto;
+`;
+
+const CheckedText = styled.span`
+  flex: 1 1 auto;
+  text-decoration: line-through;
+`;
+
 class TodoContainer extends Component {
   constructor() {
     super();
@@ -63,18 +77,14 @@ class TodoContainer extends Component {
   }
 
   toggleTextRender() {
-    return this.state.checked ? (
-      <span className="item-wrapper-text-checked">Todo Card</span>
-    ) : (
-      <span className="item-wrapper-text">Todo Card</span>
-    );
+    return this.state.checked ? <CheckedText>Todo Card</CheckedText> : <Text>Todo Card</Text>;
   }
 
   render() {
     return (
       <div>
         <Card style={cardStyle.externalStyle} containerStyle={cardStyle.containerStyle}>
-          <div className="item-wrapper">
+          <ItemWrapper>
             <Checkbox
               style={checkBoxStyle.checkBox}
               iconStyle={checkBoxStyle.selectedColor}
@@ -85,7 +95,7 @@ class TodoContainer extends Component {
             <IconButton iconClassName="material-icons" style={buttonStyle} iconStyle={iconStyle}>
               clear
             </IconButton>
-          </div>
+          </ItemWrapper>
         </Card>
       </div>
     );
