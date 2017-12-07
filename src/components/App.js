@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../css/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TodoContainer from '../components/TodoContainer';
 
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -26,23 +26,6 @@ const AppTitle = styled.h1`
 const AppIntro = styled.p`
   font-size: large;
 `;
-
-/* trying to use svg img
-const AppLogoSpin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const AppLogo = styled.img`
-  //src: ???
-  animation: ${AppLogoSpin} infinite 20s linear;
-  height: 80px;
-`;
-/* trying to use svg img*/
 
 class App extends Component {
   render() {
