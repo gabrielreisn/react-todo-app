@@ -58,8 +58,8 @@ const CheckedText = styled.span`
 `;
 
 class TodoContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.updateCheck = this.updateCheck.bind(this);
     this.toggleTextRender = this.toggleTextRender.bind(this);
@@ -77,7 +77,7 @@ class TodoContainer extends Component {
   }
 
   toggleTextRender() {
-    return this.state.checked ? <CheckedText>Todo Card</CheckedText> : <Text>Todo Card</Text>;
+    return this.state.checked ? <CheckedText>{this.props.text}</CheckedText> : <Text>{this.props.text}</Text>;
   }
 
   render() {
@@ -92,7 +92,11 @@ class TodoContainer extends Component {
               onCheck={this.updateCheck}
             />
             {this.toggleTextRender()}
-            <IconButton iconClassName="material-icons" style={buttonStyle} iconStyle={iconStyle}>
+            <IconButton
+              iconClassName="material-icons"
+              style={buttonStyle}
+              iconStyle={iconStyle}
+              onClick={this.props.remove}>
               clear
             </IconButton>
           </ItemWrapper>
