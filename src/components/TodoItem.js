@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+/* @flow */
+
+import * as React from 'react';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import Card from 'material-ui/Card';
@@ -13,13 +15,6 @@ const cardStyle = {
   },
   containerStyle: {
     marginBottom: '15px',
-  },
-  textStyle: {
-    padding: '0px',
-  },
-  cardHeader: {
-    display: 'flex',
-    alignItems: 'center',
   },
 };
 
@@ -57,12 +52,18 @@ const CheckedText = styled.span`
   text-decoration: line-through;
 `;
 
-class TodoContainer extends Component {
-  constructor(props) {
-    super(props);
+type Props = {
+  text: string,
+  remove: Function,
+};
 
-    this.updateCheck = this.updateCheck.bind(this);
-    this.toggleTextRender = this.toggleTextRender.bind(this);
+type State = {
+  checked: boolean,
+};
+
+class TodoContainer extends React.Component<Props, State> {
+  constructor() {
+    super();
 
     this.state = {
       checked: false,
@@ -89,7 +90,7 @@ class TodoContainer extends Component {
               style={checkBoxStyle.checkBox}
               iconStyle={checkBoxStyle.selectedColor}
               checked={this.state.checked}
-              onCheck={this.updateCheck}
+              onCheck={this.updateCheck.bind(this)}
             />
             {this.toggleTextRender()}
             <IconButton

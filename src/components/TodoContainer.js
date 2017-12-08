@@ -1,6 +1,10 @@
-import React, {Component} from 'react';
+/* @flow */
+
+import * as React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
+
+import styled from 'styled-components';
 
 import TodoItem from './TodoItem';
 
@@ -21,25 +25,38 @@ const textFieldStyle = {
   underline: {borderColor: '#ed7224'},
 };
 
-class TodoContainer extends Component {
+const ItemWrapper = styled.div`
+  max-height: 45vh;
+  overflow-y: auto;
+`;
+
+type Props = {
+  /* ... */
+};
+
+type State = {
+  textField: string,
+  todoText: Array<Object>,
+};
+
+class TodoContainer extends React.Component<Props, State> {
   constructor() {
     super();
     this.state = {
       textField: '',
       todoText: [],
     };
-
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.deleteFunction = this.deleteFunction.bind(this);
   }
 
-  handleKeyPress(evt) {
+  handleKeyPress(evt: SyntheticEvent<HTMLElement>) {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      let text = this.state.textField;
+      let textElem = {
+        text: this.state.textField,
+        key: Date.now(),
+      };
       let todoArray = [...this.state.todoText];
-      todoArray.unshift(text);
+      todoArray.unshift(textElem);
 
       this.setState({
         todoText: todoArray,
@@ -48,15 +65,15 @@ class TodoContainer extends Component {
     }
   }
 
-  handleChange(event) {
+  handleChange(event: SyntheticEvent<HTMLInputElement>) {
     this.setState({
-      textField: event.target.value,
+      textField: event.currentTarget.value,
     });
   }
 
-  deleteFunction(todoText) {
+  deleteFunction(todoItem: Object) {
     let newTodoList = [...this.state.todoText];
-    let index = newTodoList.findIndex(elem => elem === todoText);
+    let index = newTodoList.findIndex(elem => elem.key === todoItem.key);
     newTodoList.splice(index, 1);
 
     this.setState({
@@ -74,11 +91,16 @@ class TodoContainer extends Component {
           style={textFieldStyle.rootElement}
           underlineFocusStyle={textFieldStyle.underline}
           floatingLabelFocusStyle={textFieldStyle.defaultColor}
-          onKeyPress={this.handleKeyPress}
+          onKeyPress={this.handleKeyPress.bind(this)}
           value={this.state.textField}
-          onChange={this.handleChange}
+          onChange={this.handleChange.bind(this)}
         />
-        {this.state.todoText.map((elem, i) => <TodoItem text={elem} remove={() => this.deleteFunction(elem)} />)}
+        <ItemWrapper>
+          {this.state.todoText.map(
+            (elem, i) =>
+              elem.text ? <TodoItem text={elem.text} remove={() => this.deleteFunction(elem)} key={elem.key} /> : ''
+          )}
+        </ItemWrapper>
       </Paper>
     );
   }
