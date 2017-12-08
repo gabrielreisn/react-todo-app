@@ -90,7 +90,7 @@ class TodoContainer extends React.Component<Props, State> {
               style={checkBoxStyle.checkBox}
               iconStyle={checkBoxStyle.selectedColor}
               checked={this.state.checked}
-              onCheck={this.updateCheck}
+              onCheck={this.updateCheck.bind(this)}
             />
             {this.toggleTextRender()}
             <IconButton

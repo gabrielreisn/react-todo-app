@@ -36,7 +36,7 @@ type Props = {
 
 type State = {
   textField: string,
-  todoText: Array<string>,
+  todoText: Array<Object>,
 };
 
 class TodoContainer extends React.Component<Props, State> {
@@ -51,9 +51,12 @@ class TodoContainer extends React.Component<Props, State> {
   handleKeyPress(evt: SyntheticEvent<HTMLElement>) {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      let text = this.state.textField;
+      let textElem = {
+        text: this.state.textField,
+        key: Date.now(),
+      };
       let todoArray = [...this.state.todoText];
-      todoArray.unshift(text);
+      todoArray.unshift(textElem);
 
       this.setState({
         todoText: todoArray,
@@ -68,9 +71,9 @@ class TodoContainer extends React.Component<Props, State> {
     });
   }
 
-  deleteFunction(todoText: string) {
+  deleteFunction(todoItem: Object) {
     let newTodoList = [...this.state.todoText];
-    let index = newTodoList.findIndex(elem => elem === todoText);
+    let index = newTodoList.findIndex(elem => elem.key === todoItem.key);
     newTodoList.splice(index, 1);
 
     this.setState({
@@ -93,9 +96,10 @@ class TodoContainer extends React.Component<Props, State> {
           onChange={this.handleChange.bind(this)}
         />
         <ItemWrapper>
-          {this.state.todoText.map((elem, i) => (
-            <TodoItem text={elem} remove={() => this.deleteFunction(elem)} key={i} />
-          ))}
+          {this.state.todoText.map(
+            (elem, i) =>
+              elem.text ? <TodoItem text={elem.text} remove={() => this.deleteFunction(elem)} key={elem.key} /> : ''
+          )}
         </ItemWrapper>
       </Paper>
     );
