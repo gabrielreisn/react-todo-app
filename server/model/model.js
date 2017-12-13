@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // ==================================
-// Search-Parameters
+// Todo - Schema
 // ==================================
 
 const todoSchema = new Schema(
-    {
-      text: {type: String},
-      checked: {type: Boolean},
-    },
-    {timestamps: true}
-  );
-  
-  module.exports.Todo = mongoose.model('Todo', todoSchema);
+  {
+    text: {type: String, required: true},
+    checked: {type: Boolean, required: true},
+  },
+  {timestamps: true} //creates fields createdAt / updatedAt
+);
+
+export const Todo = mongoose.model('Todo', todoSchema);
