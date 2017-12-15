@@ -1,3 +1,5 @@
+var schema = require('./graphql/schema');
+
 var express = require('express');
 const mongoose = require('mongoose');
 var graphqlHTTP = require('express-graphql');
@@ -5,6 +7,7 @@ var {buildSchema} = require('graphql');
 
 var app = express();
 
+/*
 // make sure this is done before mongoose.connect() method
 mongoose.Promise = global.Promise;
 
@@ -50,6 +53,15 @@ app.use(
   graphqlHTTP({
     schema: schema,
     rootValue: root,
+    graphiql: true,
+  })
+);
+*/
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
     graphiql: true,
   })
 );

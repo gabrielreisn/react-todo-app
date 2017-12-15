@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
+    "faker": "^4.1.0",
     "graphql": "^0.11.7",
     "graphql-relay": "^0.5.4",
     "material-ui": "^0.20.0",
@@ -21,19 +23,23 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "flow": "flow",
-    "prettier":
-      "prettier --write --single-quote true --trailing-comma all --print-width 120 --bracket-spacing false --jsx-bracket-same-line true",
+    "prettier": "prettier --write --single-quote true --trailing-comma all --print-width 120 --bracket-spacing false --jsx-bracket-same-line true",
     "dev": "concurrently \"mongod\" \"npm run start\" \"node server/server.js\"",
     "server": "concurrently \"mongod\"  \"node server/server.js\"",
     "graphql": "node server/server.js"
   },
   "lint-staged": {
-    "*.{js}": ["eslint --fix", "git add", "prettier"]
+    "*.{js}": [
+      "eslint --fix",
+      "git add",
+      "prettier"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
     "concurrently": "^3.5.1",
     "eslint": "^4.12.1",
     "eslint-config-prettier": "^2.9.0",
