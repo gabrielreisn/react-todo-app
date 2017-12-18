@@ -1,36 +1,43 @@
-import {GraphQLString, GraphQLID, GraphQLInputObjectType, GraphQLObjectType, GraphQLBoolean} from 'graphql';
+import {
+  GraphQLString,
+  GraphQLID,
+  GraphQLInputObjectType,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLBoolean,
+} from 'graphql';
 
 const TodoType = new GraphQLObjectType({
   name: 'TodoType',
   description: 'describes todo type definition',
   fields: () => ({
     id: {
-      type: new GraphQLID(),
+      type: new GraphQLNonNull(GraphQLID),
     },
     email: {
-      type: new GraphQLString(),
+      type: new GraphQLNonNull(GraphQLString),
     },
     text: {
-      type: new GraphQLString(),
+      type: new GraphQLNonNull(GraphQLString),
     },
     checked: {
-      type: new GraphQLBoolean(),
+      type: new GraphQLNonNull(GraphQLString),
     },
   }),
 });
 
 const TodoInputType = new GraphQLInputObjectType({
   name: 'TodoInputType',
-  description: 'User payload definition',
+  description: 'Todo payload definition',
   fields: () => ({
     email: {
-      type: new GraphQLString(),
+      type: new GraphQLNonNull(GraphQLString),
     },
     text: {
-      type: new GraphQLString(),
+      type: new GraphQLNonNull(GraphQLString),
     },
     checked: {
-      type: new GraphQLBoolean(),
+      type: new GraphQLNonNull(GraphQLBoolean),
     },
   }),
 });

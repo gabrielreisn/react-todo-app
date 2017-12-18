@@ -14,7 +14,7 @@ const todoQueries = {
               new Array(10).fill(undefined).map(() => ({
                 id: random.uuid(),
                 email: internet.email(),
-                tex: lorem.word(),
+                text: lorem.words(),
                 checked: random.boolean(),
               }))
             ),
@@ -41,6 +41,9 @@ const todoMutations = {
             resolve(
               Object.assign(input, {
                 id: random.uuid(),
+                email: internet.email(),
+                text: lorem.word(),
+                checked: random.checked(),
               })
             ),
           100
