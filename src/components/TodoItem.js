@@ -7,104 +7,69 @@ import Card from 'material-ui/Card';
 
 import styled from 'styled-components';
 
-//using external inline-style to minimize re-render problems
-const cardStyle = {
-  externalStyle: {
-    width: '75%',
-    margin: 'auto',
-  },
-  containerStyle: {
-    marginBottom: '15px',
-  },
-};
-
-const checkBoxStyle = {
-  checkBox: {
-    width: '24px',
-    height: '24px',
-    marginRight: '20px',
-  },
-  selectedColor: {
-    fill: '#ed7224',
-  },
-};
-
-const buttonStyle = {
-  padding: '0px',
-  margin: 'auto',
-};
-
-const iconStyle = {
-  iconHoverColor: '#ed7224',
-};
+import { cardStyle, checkBoxStyle, buttonStyle, iconStyle } from './styles';
 
 const ItemWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const Text = styled.span`
-  flex: 1 1 auto;
-`;
-
 const CheckedText = styled.span`
   flex: 1 1 auto;
-  text-decoration: line-through;
+  text-decoration: ${props => (props.checked ? 'line-through' : '')};
 `;
 
 type Props = {
   text: string,
-  remove: Function,
+  onRemove: (element: number) => void,
 };
 
 type State = {
   checked: boolean,
 };
 
-class TodoContainer extends React.Component<Props, State> {
-  constructor() {
-    super();
+class TodoItem extends React.Component<Props, State> {
+  state = {
+    checked: false,
+  };
 
-    this.state = {
-      checked: false,
-    };
-  }
-
-  updateCheck() {
-    let newState = this.state.checked;
-    this.setState({
-      checked: !newState,
+  toggleCheck = (): void => {
+    this.setState(prevState => {
+      return {
+        checked: !prevState.checked,
+      };
     });
-  }
+  };
 
-  toggleTextRender() {
-    return this.state.checked ? <CheckedText>{this.props.text}</CheckedText> : <Text>{this.props.text}</Text>;
-  }
+  render(): React.Node {
+    const { checked } = this.state;
+    const { onRemove, text } = this.props;
 
-  render() {
     return (
-      <div>
-        <Card style={cardStyle.externalStyle} containerStyle={cardStyle.containerStyle}>
-          <ItemWrapper>
-            <Checkbox
-              style={checkBoxStyle.checkBox}
-              iconStyle={checkBoxStyle.selectedColor}
-              checked={this.state.checked}
-              onCheck={this.updateCheck.bind(this)}
-            />
-            {this.toggleTextRender()}
-            <IconButton
-              iconClassName="material-icons"
-              style={buttonStyle}
-              iconStyle={iconStyle}
-              onClick={this.props.remove}>
-              clear
-            </IconButton>
-          </ItemWrapper>
-        </Card>
-      </div>
+      <Card
+        style={cardStyle.externalStyle}
+        containerStyle={cardStyle.containerStyle}
+      >
+        <ItemWrapper>
+          <Checkbox
+            style={checkBoxStyle.checkBox}
+            iconStyle={checkBoxStyle.selectedColor}
+            checked={checked}
+            onCheck={this.toggleCheck}
+          />
+          <CheckedText checked={checked}>{text}</CheckedText>
+          <IconButton
+            iconClassName="material-icons"
+            style={buttonStyle}
+            iconStyle={iconStyle}
+            onClick={onRemove}
+          >
+            clear
+          </IconButton>
+        </ItemWrapper>
+      </Card>
     );
   }
 }
 
-export default TodoContainer;
+export default TodoItem;

@@ -7,23 +7,7 @@ import Paper from 'material-ui/Paper';
 import styled from 'styled-components';
 
 import TodoItem from './TodoItem';
-
-//using external inline-style to minimize re-render problems
-const paperStyle = {
-  width: '35%',
-  height: '70vh',
-  margin: 'auto',
-};
-
-const textFieldStyle = {
-  rootElement: {
-    width: '75%',
-    marginBottom: '40px',
-    marginTop: '20px',
-  },
-  defaultColor: {color: '#ed7224'},
-  underline: {borderColor: '#ed7224'},
-};
+import { paperStyle, textFieldStyle } from './styles';
 
 const ItemWrapper = styled.div`
   max-height: 45vh;
@@ -40,48 +24,47 @@ type State = {
 };
 
 class TodoContainer extends React.Component<Props, State> {
-  constructor() {
-    super();
-    this.state = {
-      textField: '',
-      todoText: [],
-    };
-  }
+  state = {
+    textField: '',
+    todoText: [],
+  };
 
-  handleKeyPress(evt: SyntheticEvent<HTMLElement>) {
+  handleKeyPress = (evt: SyntheticEvent<HTMLInputElement>): void => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      let textElem = {
+
+      const textElem = {
+        key: Math.random(),
         text: this.state.textField,
-        key: Date.now(),
       };
-      let todoArray = [...this.state.todoText];
-      todoArray.unshift(textElem);
+
+      const { todoText } = this.state;
+      todoText.unshift(textElem);
 
       this.setState({
-        todoText: todoArray,
+        todoText: todoText,
         textField: '',
       });
     }
-  }
+  };
 
-  handleChange(event: SyntheticEvent<HTMLInputElement>) {
+  handleChange = (event: SyntheticEvent<HTMLInputElement>): void => {
     this.setState({
       textField: event.currentTarget.value,
     });
-  }
+  };
 
-  deleteFunction(todoItem: Object) {
-    let newTodoList = [...this.state.todoText];
-    let index = newTodoList.findIndex(elem => elem.key === todoItem.key);
-    newTodoList.splice(index, 1);
+  deleteElement = (key: number): void => {
+    const { todoText } = this.state;
+    const newTodoList = todoText.filter(element => element.key !== key);
 
     this.setState({
       todoText: newTodoList,
     });
-  }
+  };
 
   render() {
+    const { todoText } = this.state;
     return (
       <Paper style={paperStyle} zDepth={4}>
         <TextField
@@ -91,14 +74,20 @@ class TodoContainer extends React.Component<Props, State> {
           style={textFieldStyle.rootElement}
           underlineFocusStyle={textFieldStyle.underline}
           floatingLabelFocusStyle={textFieldStyle.defaultColor}
-          onKeyPress={this.handleKeyPress.bind(this)}
+          onKeyPress={this.handleKeyPress}
           value={this.state.textField}
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handleChange}
         />
         <ItemWrapper>
-          {this.state.todoText.map(
-            (elem, i) =>
-              elem.text ? <TodoItem text={elem.text} remove={() => this.deleteFunction(elem)} key={elem.key} /> : ''
+          {todoText.map(
+            elem =>
+              elem.text && (
+                <TodoItem
+                  text={elem.text}
+                  onRemove={() => this.deleteElement(elem.key)}
+                  key={elem.key}
+                />
+              )
           )}
         </ItemWrapper>
       </Paper>
