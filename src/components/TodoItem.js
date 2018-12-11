@@ -21,7 +21,7 @@ const CheckedText = styled.span`
 
 type Props = {
   text: string,
-  onRemove: (element: Object) => void,
+  onRemove: (element: number) => void,
 };
 
 type State = {

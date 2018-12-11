@@ -32,14 +32,17 @@ class TodoContainer extends React.Component<Props, State> {
   handleKeyPress = (evt: SyntheticEvent<HTMLInputElement>): void => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      let textElem = {
+
+      const textElem = {
+        key: Math.random(),
         text: this.state.textField,
       };
-      let todoArray = [...this.state.todoText];
-      todoArray.unshift(textElem);
+
+      const { todoText } = this.state;
+      todoText.unshift(textElem);
 
       this.setState({
-        todoText: todoArray,
+        todoText: todoText,
         textField: '',
       });
     }
@@ -51,25 +54,13 @@ class TodoContainer extends React.Component<Props, State> {
     });
   };
 
-  deleteElement = (todoItem: Object): void => {
-    let newTodoList = [...this.state.todoText];
-    let index = newTodoList.findIndex(elem => elem.key === todoItem.key);
-    newTodoList.splice(index, 1);
-
-    this.setState({
-      todoText: newTodoList,
-    });
-
-    /** 
+  deleteElement = (key: number): void => {
     const { todoText } = this.state;
-    const newTodoList = todoText.filter(
-      element => element.text === todoItem.text
-    );
+    const newTodoList = todoText.filter(element => element.key !== key);
 
     this.setState({
       todoText: newTodoList,
     });
-    */
   };
 
   render() {
@@ -89,12 +80,12 @@ class TodoContainer extends React.Component<Props, State> {
         />
         <ItemWrapper>
           {todoText.map(
-            (elem, index) =>
+            elem =>
               elem.text && (
                 <TodoItem
                   text={elem.text}
-                  onRemove={() => this.deleteElement(elem)}
-                  key={`${index}-${elem.text}`}
+                  onRemove={() => this.deleteElement(elem.key)}
+                  key={elem.key}
                 />
               )
           )}
