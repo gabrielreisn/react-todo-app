@@ -54,7 +54,7 @@ const CheckedText = styled.span`
 
 type Props = {
   text: string,
-  remove: Function,
+  onRemove: (element: Object) => void,
 };
 
 type State = {
@@ -70,34 +70,45 @@ class TodoContainer extends React.Component<Props, State> {
     };
   }
 
-  updateCheck() {
-    let newState = this.state.checked;
-    this.setState({
-      checked: !newState,
+  toggleCheck = (): void => {
+    this.setState(prevState => {
+      return {
+        checked: !prevState.checked,
+      };
     });
+  };
+
+  toggleTextRender(): React.Node {
+    return this.state.checked ? (
+      <CheckedText>{this.props.text}</CheckedText>
+    ) : (
+      <Text>{this.props.text}</Text>
+    );
   }
 
-  toggleTextRender() {
-    return this.state.checked ? <CheckedText>{this.props.text}</CheckedText> : <Text>{this.props.text}</Text>;
-  }
-
-  render() {
+  render(): React.Node {
+    const { checked } = this.state;
+    const { onRemove } = this.props;
     return (
       <div>
-        <Card style={cardStyle.externalStyle} containerStyle={cardStyle.containerStyle}>
+        <Card
+          style={cardStyle.externalStyle}
+          containerStyle={cardStyle.containerStyle}
+        >
           <ItemWrapper>
             <Checkbox
               style={checkBoxStyle.checkBox}
               iconStyle={checkBoxStyle.selectedColor}
-              checked={this.state.checked}
-              onCheck={this.updateCheck.bind(this)}
+              checked={checked}
+              onCheck={this.toggleCheck}
             />
             {this.toggleTextRender()}
             <IconButton
               iconClassName="material-icons"
               style={buttonStyle}
               iconStyle={iconStyle}
-              onClick={this.props.remove}>
+              onClick={onRemove}
+            >
               clear
             </IconButton>
           </ItemWrapper>
