@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoContainer /> should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TodoContainer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelFocusStyle={
+            Object {
+              "color": "#ed7224",
+            }
+          }
+          floatingLabelText="Todo Title:"
+          fullWidth={true}
+          hintText="Hit a new todo and press Enter!"
+          multiLine={false}
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          rows={1}
+          style={
+            Object {
+              "marginBottom": "40px",
+              "marginTop": "20px",
+              "width": "75%",
+            }
+          }
+          type="text"
+          underlineFocusStyle={
+            Object {
+              "borderColor": "#ed7224",
+            }
+          }
+          underlineShow={true}
+          value=""
+        />,
+        <ForwardRef />,
+      ],
+      "circle": false,
+      "rounded": true,
+      "style": Object {
+        "height": "70vh",
+        "margin": "auto",
+        "width": "35%",
+      },
+      "transitionEnabled": true,
+      "zDepth": 4,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disabled": false,
+          "floatingLabelFixed": false,
+          "floatingLabelFocusStyle": Object {
+            "color": "#ed7224",
+          },
+          "floatingLabelText": "Todo Title:",
+          "fullWidth": true,
+          "hintText": "Hit a new todo and press Enter!",
+          "multiLine": false,
+          "onChange": [Function],
+          "onKeyPress": [Function],
+          "rows": 1,
+          "style": Object {
+            "marginBottom": "40px",
+            "marginTop": "20px",
+            "width": "75%",
+          },
+          "type": "text",
+          "underlineFocusStyle": Object {
+            "borderColor": "#ed7224",
+          },
+          "underlineShow": true,
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [],
+        },
+        "ref": null,
+        "rendered": Array [],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-htpNat",
+            "isStatic": true,
+            "rules": Array [
+              "
+  max-height: 45vh;
+  overflow-y: auto;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-htpNat",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <TextField
+            disabled={false}
+            floatingLabelFixed={false}
+            floatingLabelFocusStyle={
+              Object {
+                "color": "#ed7224",
+              }
+            }
+            floatingLabelText="Todo Title:"
+            fullWidth={true}
+            hintText="Hit a new todo and press Enter!"
+            multiLine={false}
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            rows={1}
+            style={
+              Object {
+                "marginBottom": "40px",
+                "marginTop": "20px",
+                "width": "75%",
+              }
+            }
+            type="text"
+            underlineFocusStyle={
+              Object {
+                "borderColor": "#ed7224",
+              }
+            }
+            underlineShow={true}
+            value=""
+          />,
+          <ForwardRef />,
+        ],
+        "circle": false,
+        "rounded": true,
+        "style": Object {
+          "height": "70vh",
+          "margin": "auto",
+          "width": "35%",
+        },
+        "transitionEnabled": true,
+        "zDepth": 4,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": false,
+            "floatingLabelFixed": false,
+            "floatingLabelFocusStyle": Object {
+              "color": "#ed7224",
+            },
+            "floatingLabelText": "Todo Title:",
+            "fullWidth": true,
+            "hintText": "Hit a new todo and press Enter!",
+            "multiLine": false,
+            "onChange": [Function],
+            "onKeyPress": [Function],
+            "rows": 1,
+            "style": Object {
+              "marginBottom": "40px",
+              "marginTop": "20px",
+              "width": "75%",
+            },
+            "type": "text",
+            "underlineFocusStyle": Object {
+              "borderColor": "#ed7224",
+            },
+            "underlineShow": true,
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [],
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-htpNat",
+              "isStatic": true,
+              "rules": Array [
+                "
+  max-height: 45vh;
+  overflow-y: auto;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-htpNat",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
