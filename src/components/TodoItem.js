@@ -14,9 +14,9 @@ const ItemWrapper = styled.div`
   align-items: center;
 `;
 
-const CheckedText = styled.span`
+export const CheckedText = styled.span`
   flex: 1 1 auto;
-  text-decoration: ${props => (props.checked ? 'line-through' : '')};
+  text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
 `;
 
 type Props = {
