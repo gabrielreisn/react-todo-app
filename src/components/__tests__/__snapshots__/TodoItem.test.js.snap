@@ -48,6 +48,7 @@ ShallowWrapper {
               "iconHoverColor": "#ed7224",
             }
           }
+          onClick={[Function]}
           style={
             Object {
               "margin": "auto",
@@ -108,6 +109,7 @@ ShallowWrapper {
                 "iconHoverColor": "#ed7224",
               }
             }
+            onClick={[Function]}
             style={
               Object {
                 "margin": "auto",
@@ -192,7 +194,7 @@ ShallowWrapper {
             "iconStyle": Object {
               "iconHoverColor": "#ed7224",
             },
-            "onClick": undefined,
+            "onClick": [Function],
             "style": Object {
               "margin": "auto",
               "padding": "0px",
@@ -267,6 +269,7 @@ ShallowWrapper {
                 "iconHoverColor": "#ed7224",
               }
             }
+            onClick={[Function]}
             style={
               Object {
                 "margin": "auto",
@@ -327,6 +330,7 @@ ShallowWrapper {
                   "iconHoverColor": "#ed7224",
                 }
               }
+              onClick={[Function]}
               style={
                 Object {
                   "margin": "auto",
@@ -411,7 +415,7 @@ ShallowWrapper {
               "iconStyle": Object {
                 "iconHoverColor": "#ed7224",
               },
-              "onClick": undefined,
+              "onClick": [Function],
               "style": Object {
                 "margin": "auto",
                 "padding": "0px",

@@ -15,56 +15,39 @@ const ItemWrapper = styled.div`
 `;
 
 type Props = {
-  /* ... */
+  addTodoItem: (item: string) => void,
+  removeTodoItem: (key: number) => void,
+  todoItems: [
+    {
+      key: number,
+      text: string,
+    },
+  ],
 };
 
 type State = {
   textField: string,
-  todoText: Array<Object>,
 };
 
-class TodoContainer extends React.Component<Props, State> {
+class TodoList extends React.PureComponent<Props, State> {
   state = {
     textField: '',
-    todoText: [],
   };
-
   handleKeyPress = (evt: SyntheticEvent<HTMLInputElement>): void => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
 
-      const textElem = {
-        key: Math.random(),
-        text: this.state.textField,
-      };
-
-      const { todoText } = this.state;
-      todoText.unshift(textElem);
-
-      this.setState({
-        todoText: todoText,
-        textField: '',
-      });
+      const { textField } = this.state;
+      this.props.addTodoItem(textField);
+      this.setState({ textField: '' });
     }
   };
-
   handleChange = (event: SyntheticEvent<HTMLInputElement>): void => {
-    this.setState({
-      textField: event.currentTarget.value,
-    });
-  };
-
-  deleteElement = (key: number): void => {
-    const { todoText } = this.state;
-    const newTodoList = todoText.filter(element => element.key !== key);
-
-    this.setState({
-      todoText: newTodoList,
-    });
+    this.setState({ textField: event.currentTarget.value });
   };
 
   render() {
-    const { todoText } = this.state;
+    const { todoItems, removeTodoItem } = this.props;
     return (
       <Paper style={paperStyle} zDepth={4}>
         <TextField
@@ -79,12 +62,13 @@ class TodoContainer extends React.Component<Props, State> {
           onChange={this.handleChange}
         />
         <ItemWrapper>
-          {todoText.map(
+          {todoItems.map(
             elem =>
               elem.text && (
                 <TodoItem
                   text={elem.text}
-                  onRemove={() => this.deleteElement(elem.key)}
+                  onRemove={removeTodoItem}
+                  elementKey={elem.key}
                   key={elem.key}
                 />
               )
@@ -95,4 +79,4 @@ class TodoContainer extends React.Component<Props, State> {
   }
 }
 
-export default TodoContainer;
+export default TodoList;

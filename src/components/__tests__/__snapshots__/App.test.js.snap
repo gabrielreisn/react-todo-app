@@ -15,9 +15,9 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
-      "children": Array [
+      "children": <ForwardRef>
         <ForwardRef>
           <img
             alt="logo"
@@ -27,182 +27,22 @@ ShallowWrapper {
           <ForwardRef>
             Welcome to To-Do App
           </ForwardRef>
-        </ForwardRef>,
-        <ForwardRef />,
+        </ForwardRef>
+        <ForwardRef />
         <MuiThemeProvider>
-          <TodoContainer />
-        </MuiThemeProvider>,
-      ],
+          <Connect(TodoList) />
+        </MuiThemeProvider>
+      </ForwardRef>,
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "children": Array [
-            <img
-              alt="logo"
-              className="App-logo"
-              src="logo.svg"
-            />,
-            <ForwardRef>
-              Welcome to To-Do App
-            </ForwardRef>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "alt": "logo",
-              "className": "App-logo",
-              "src": "logo.svg",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "img",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": "Welcome to To-Do App",
-            },
-            "ref": null,
-            "rendered": "Welcome to To-Do App",
-            "type": Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "attrs": Array [],
-              "componentStyle": ComponentStyle {
-                "componentId": "sc-EHOje",
-                "isStatic": true,
-                "lastClassName": "bOplrh",
-                "rules": Array [
-                  "
-  font-size: 1.5em;
-",
-                ],
-              },
-              "displayName": "styled.h1",
-              "foldedComponentIds": Array [],
-              "render": [Function],
-              "styledComponentId": "sc-EHOje",
-              "target": "h1",
-              "toString": [Function],
-              "warnTooManyClasses": [Function],
-              "withComponent": [Function],
-            },
-          },
-        ],
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-ifAKCX",
-            "isStatic": true,
-            "lastClassName": "kiblsc",
-            "rules": Array [
-              "
-  background-color: #4b586b;
-  height: 150px;
-  padding: 20px;
-  color: white;
-",
-            ],
-          },
-          "displayName": "styled.header",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-ifAKCX",
-          "target": "header",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        },
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bZQynM",
-            "isStatic": true,
-            "lastClassName": "gKZBTC",
-            "rules": Array [
-              "
-  font-size: large;
-",
-            ],
-          },
-          "displayName": "styled.p",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bZQynM",
-          "target": "p",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        },
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": <TodoContainer />,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": [Function],
-      },
-    ],
-    "type": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "attrs": Array [],
-      "componentStyle": ComponentStyle {
-        "componentId": "sc-bxivhb",
-        "isStatic": true,
-        "lastClassName": "hctssk",
-        "rules": Array [
-          "
-  text-align: center;
-  background-color: #6c7b8e;
-  height: 100vh;
-",
-        ],
-      },
-      "displayName": "styled.div",
-      "foldedComponentIds": Array [],
-      "render": [Function],
-      "styledComponentId": "sc-bxivhb",
-      "target": "div",
-      "toString": [Function],
-      "warnTooManyClasses": [Function],
-      "withComponent": [Function],
-    },
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "function",
@@ -220,7 +60,7 @@ ShallowWrapper {
           </ForwardRef>,
           <ForwardRef />,
           <MuiThemeProvider>
-            <TodoContainer />
+            <Connect(TodoList) />
           </MuiThemeProvider>,
         ],
       },
@@ -351,7 +191,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <TodoContainer />,
+            "children": <Connect(TodoList) />,
           },
           "ref": null,
           "rendered": Object {
@@ -390,6 +230,230 @@ ShallowWrapper {
         "warnTooManyClasses": [Function],
         "withComponent": [Function],
       },
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <ForwardRef>
+          <ForwardRef>
+            <img
+              alt="logo"
+              className="App-logo"
+              src="logo.svg"
+            />
+            <ForwardRef>
+              Welcome to To-Do App
+            </ForwardRef>
+          </ForwardRef>
+          <ForwardRef />
+          <MuiThemeProvider>
+            <Connect(TodoList) />
+          </MuiThemeProvider>
+        </ForwardRef>,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <ForwardRef>
+              <img
+                alt="logo"
+                className="App-logo"
+                src="logo.svg"
+              />
+              <ForwardRef>
+                Welcome to To-Do App
+              </ForwardRef>
+            </ForwardRef>,
+            <ForwardRef />,
+            <MuiThemeProvider>
+              <Connect(TodoList) />
+            </MuiThemeProvider>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="logo"
+                  className="App-logo"
+                  src="logo.svg"
+                />,
+                <ForwardRef>
+                  Welcome to To-Do App
+                </ForwardRef>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "logo",
+                  "className": "App-logo",
+                  "src": "logo.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": "Welcome to To-Do App",
+                },
+                "ref": null,
+                "rendered": "Welcome to To-Do App",
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-EHOje",
+                    "isStatic": true,
+                    "lastClassName": "bOplrh",
+                    "rules": Array [
+                      "
+  font-size: 1.5em;
+",
+                    ],
+                  },
+                  "displayName": "styled.h1",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-EHOje",
+                  "target": "h1",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+            ],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-ifAKCX",
+                "isStatic": true,
+                "lastClassName": "kiblsc",
+                "rules": Array [
+                  "
+  background-color: #4b586b;
+  height: 150px;
+  padding: 20px;
+  color: white;
+",
+                ],
+              },
+              "displayName": "styled.header",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-ifAKCX",
+              "target": "header",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bZQynM",
+                "isStatic": true,
+                "lastClassName": "gKZBTC",
+                "rules": Array [
+                  "
+  font-size: large;
+",
+                ],
+              },
+              "displayName": "styled.p",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bZQynM",
+              "target": "p",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Connect(TodoList) />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bxivhb",
+            "isStatic": true,
+            "lastClassName": "hctssk",
+            "rules": Array [
+              "
+  text-align: center;
+  background-color: #6c7b8e;
+  height: 100vh;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bxivhb",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
