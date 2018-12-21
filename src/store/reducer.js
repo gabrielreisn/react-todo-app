@@ -8,12 +8,13 @@ const todoListReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO_ITEM: {
       const textElem = { key: Math.random(), text: action.item };
-      const { todoItems } = state;
-      todoItems.unshift(textElem);
+      const newList = Array.from(state.todoItems);
+
+      newList.unshift(textElem);
 
       return {
         ...state,
-        todoItems: todoItems,
+        todoItems: newList,
       };
     }
 

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import styled from 'styled-components';
 
@@ -15,6 +16,7 @@ const ItemWrapper = styled.div`
 `;
 
 type Props = {
+  addRandomPokemon: () => void,
   addTodoItem: (item: string) => void,
   removeTodoItem: (key: number) => void,
   todoItems: [
@@ -33,6 +35,7 @@ class TodoList extends React.PureComponent<Props, State> {
   state = {
     textField: '',
   };
+
   handleKeyPress = (evt: SyntheticEvent<HTMLInputElement>): void => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
@@ -47,9 +50,14 @@ class TodoList extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { todoItems, removeTodoItem } = this.props;
+    const { todoItems, removeTodoItem, addRandomPokemon } = this.props;
     return (
       <Paper style={paperStyle} zDepth={4}>
+        <RaisedButton
+          fullWidth
+          label="Add some random stuff!"
+          onClick={addRandomPokemon}
+        />
         <TextField
           hintText="Hit a new todo and press Enter!"
           floatingLabelText="Todo Title:"
