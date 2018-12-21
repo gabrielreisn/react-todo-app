@@ -36,6 +36,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
+        <RaisedButton
+          disabled={false}
+          fullWidth={true}
+          label="Add some random stuff!"
+          labelPosition="after"
+          primary={false}
+          secondary={false}
+        />,
         <TextField
           disabled={false}
           floatingLabelFixed={false}
@@ -94,6 +102,23 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disabled": false,
+          "fullWidth": true,
+          "label": "Add some random stuff!",
+          "labelPosition": "after",
+          "onClick": undefined,
+          "primary": false,
+          "secondary": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -222,6 +247,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
+          <RaisedButton
+            disabled={false}
+            fullWidth={true}
+            label="Add some random stuff!"
+            labelPosition="after"
+            primary={false}
+            secondary={false}
+          />,
           <TextField
             disabled={false}
             floatingLabelFixed={false}
@@ -280,6 +313,23 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": false,
+            "fullWidth": true,
+            "label": "Add some random stuff!",
+            "labelPosition": "after",
+            "onClick": undefined,
+            "primary": false,
+            "secondary": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
