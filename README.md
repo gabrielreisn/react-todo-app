@@ -12,4 +12,4 @@ Had also updated this project with the following technologies:
  - flow for type checking
  
  
- You can check the final version here: https://gabriel-react-todo-app.herokuapp.com/
+ You can check the final version here: https://gabriel-todo-app.netlify.com/
